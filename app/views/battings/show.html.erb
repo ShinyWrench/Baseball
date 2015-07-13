@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+<p> <%= "Doubles: #{@batting.attributes['2B']}" %> </p>
+	<% puts "------------------------------" %>
+	<% @batting.attributes.each_pair do |k, v| %>
+		<p> <%= "#{k}: #{v}" %> </p>
+	<% end %>
+</body>
+</html>

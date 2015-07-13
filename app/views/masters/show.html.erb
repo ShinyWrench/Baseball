@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+
+<h2> <%= "#{@master.nameFirst} #{@master.nameLast}" %> </h2>
+<div> <%= link_to "back", :back %> </div>
+<div> <%= link_to "home", root_path %> </div>
+<p></p>
+
+<% if @batting_lines.length > 0 %>
+<h3>Batting</h3>
+
+<table>
+	<tr style="font-size: 1.2em">
+		<% @batting_stat_columns.each do |k, v| %>
+		<td><span>
+			<%= v %>
+		</span></td>
+		<% end %>
+	</tr>
+
+	<% @batting_lines.each do |l| %>
+	<tr>
+		<% l.each do |c| %>
+		<td>
+			<%= c %>
+		</td>
+		<% end %>
+	</tr>
+	<% end %>
+
+	<tr style="font-weight: bold">
+		<% @batting_totals.each do |t| %>
+		<td>
+			<%= t %>
+		</td>
+		<% end %>
+	</tr>
+</table>
+
+<p></p>
+<% end %>
+
+<% if @pitching_lines.length > 0 %>
+<h3>Pitching</h3>
+
+<table>
+	<tr style="font-size: 1.2em">
+		<% @pitching_stat_columns.each do |k, v| %>
+		<td><span>
+			<%= v %>
+		</span></td>
+		<% end %>
+	</tr>
+
+	<% @pitching_lines.each do |l| %>
+	<tr>
+		<% l.each do |c| %>
+		<td>
+			<%= c %>
+		</td>
+		<% end %>
+	</tr>
+	<% end %>
+
+	<tr style="font-weight: bold">
+		<% @pitching_totals.each do |t| %>
+		<td>
+			<%= t %>
+		</td>
+		<% end %>
+	</tr>
+</table>
+<% end %>
+
+</body>
+<style>
+table {
+	border-collapse: collapse;
+	border: 1px solid black;
+}
+td {
+	border: 1px solid black;
+	padding: 1px 7px;
+}
+h2 {
+	display: inline-block;
+}
+
+div {
+	margin-left: 40px;
+	display: inline-block;
+}
+</style>
+</html>

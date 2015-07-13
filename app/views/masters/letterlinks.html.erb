@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+	<h2> <%= "#{@letter} players" %> </h2>
+	<div> <%= link_to "home", root_path() %> </div>
+	<% @masters.each do |m| %>
+		<p> <%= link_to "#{m.nameLast}, #{m.nameFirst}", master_path(m) %> </p>
+	<% end %>
+</body>
+
+<style>
+
+h2 {
+	display: inline-block;
+}
+
+div {
+	margin-left: 40px;
+	display: inline-block;
+}
+
+</style>
+
+</html>

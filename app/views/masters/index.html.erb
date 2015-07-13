@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+
+<div id="container">
+
+	<div id="tableContainer">
+		<table>
+		<% ('A'..'Z').each_with_index do |c, i| %>
+			<%= "<tr>".html_safe if i % 5 == 0 %>
+				<td><span> <%= link_to "#{c}", "/letterlinks/#{c}" %> </span></td>
+			<%= "</tr>".html_safe if i % 5 == 4 || i == 25 %>
+		<% end %>
+		</table>
+		<p></p>
+		<form>
+			<label>search by last name</label>&nbsp&nbsp
+			<input type="text" name="search">
+		</form>
+	</div>	
+	<div id="searchResults"></div>
+
+</div>
+
+</body>
+<style>
+#tableContainer {
+	float: left;
+	display: inline-block;
+}
+td {
+	text-align: left;
+	padding: 15px;
+	font-size: 24px;
+}
+#container {
+	text-align: center;
+}
+#searchResults {
+	margin-left: 80px;
+	float: left;
+	text-align: left;
+	display: inline-block;
+	width: 300px;
+}
+</style>
+</html>
